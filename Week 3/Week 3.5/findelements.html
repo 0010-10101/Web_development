@@ -1,0 +1,31 @@
+<!-- findelements.html file -->
+<!DOCTYPE html>
+<html>
+    <body>
+        <h2>Javascript HTML DOM</h2>
+        <p>Finding Elements by Query Selector</p>
+        <div>Div One</div>
+        <p class = 'intro'> Paragraph one</p>
+        <div>Div Two</div>
+        <p class = 'subheading'> Paragraph two</p>
+        <div> Yet another div</div>
+        <div id="myDIV" style="border:1px solid black;padding:8px;">
+            <h2 class="example">A Heading</h2>
+            <p class="example">A paragraph.</p>
+            <p class="example">A paragraph.</p>
+        </div>
+        <p id = "demo"></p>
+        <script>
+            // var paragraphs = document.querySelectorAll('p');
+
+            var paragraphs = document.querySelectorAll('p.intro');
+
+            paragraphs.forEach(paragraph => paragraph.style.backgroundColor = "red");
+            const matches = element.querySelectorAll("p.intro, p.subheading");
+            const element = document.getElementById("myDIV");
+            const list = element.querySelectorAll(".example");
+
+            document.getElementById("demo").innerHTML = list.length;
+        </script>
+    </body>
+</html>

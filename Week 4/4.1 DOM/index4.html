@@ -1,0 +1,34 @@
+<!-- Practicing debouncing and throttling -->
+<html>
+    <script>
+         // this function is used to delay the call of populateDiv() function until  have not been called for 100ms.
+            // and I have been called atleast once.
+
+
+            //how to cancel a clock.
+            //using clear timeout.
+        let timeout;
+        function debouncePopulateDiv() {
+            clearTimeout(timeout);           
+            const timeout = setTimeout(function(){
+                populateDiv()
+            },1000);
+        }
+        function populateDiv(){
+            const a = document.getElementById("firstNumber").value;
+            const b= document.getElementById("secondNumber").value;
+            fetch("https://sum-server.100xdevs.com/sum?a=" + a + "&b=" + b)
+                .then(function(response){
+                    response.text()
+                        .then(function(ans){
+                            document.getElementById("finalSum").innerHTML = ans;
+                        })
+                });
+        }
+    </script>
+    <body>
+        <input onInput = "debouncePopulateDiv()" id="firstNumber" type = "text" placeholder="First number"></input> <br></br>
+        <input onInput = "debouncePopulateDiv()" id="secondNumber" type = "text" placeholder = "Second number"></input> <br></br>
+        <div id="finalSum"></div>
+    </body>
+</html>
